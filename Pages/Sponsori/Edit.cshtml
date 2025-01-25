@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model EvenimenteSportive.Pages.Sponsori.EditModel
+@using EvenimenteSportive.Models
+
+<h1>Editare Sponsor</h1>
+
+<form method="post">
+    <input type="hidden" id="ID" name="Sponsor.ID" value="@Model.Sponsor.ID" />
+    <div class="form-group">
+        <label for="Nume">Nume</label>
+        <input type="text" id="Nume" name="Sponsor.Nume" class="form-control" value="@Model.Sponsor.Nume" required />
+    </div>
+    <div class="form-group">
+        <label for="Buget">Buget</label>
+        <input type="number" id="Buget" name="Sponsor.Buget" class="form-control" value="@Model.Sponsor.Buget" required />
+    </div>
+    <div class="form-group">
+        <label for="DurataContract">Durata Contract (luni)</label>
+        <input type="number" id="DurataContract" name="Sponsor.DurataContract" class="form-control" value="@Model.Sponsor.DurataContract" required />
+    </div>
+    <div class="form-group">
+        <label for="IDEveniment">Eveniment</label>
+        <select id="IDEveniment" name="Sponsor.IDEveniment" class="form-control" required>
+            @foreach (var eveniment in Model.EvenimenteSportive)
+            {
+                @if (eveniment.ID == Model.Sponsor.IDEveniment)
+                {
+                    <option value="@eveniment.ID" selected>@eveniment.Nume</option>
+                }
+                else
+                {
+                    <option value="@eveniment.ID">@eveniment.Nume</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salveaza</button>
+    <a asp-page="./Index" class="btn btn-secondary">Anuleaza</a>
+</form>

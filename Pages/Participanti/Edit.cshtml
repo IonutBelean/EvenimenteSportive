@@ -1,0 +1,41 @@
+﻿@page "{id:int}"
+@model EvenimenteSportive.Pages.Participanti.EditModel
+@{
+    ViewData["Title"] = "Editare Participant";
+}
+
+<h1>Editare Participant</h1>
+
+<form method="post">
+    <input type="hidden" id="ID" name="Participant.ID" value="@Model.Participant.ID" />
+    <div class="form-group">
+        <label for="Nume">Nume</label>
+        <input type="text" id="Nume" name="Participant.Nume" class="form-control" value="@Model.Participant.Nume" required />
+    </div>
+    <div class="form-group">
+        <label for="Varsta">Varsta</label>
+        <input type="number" id="Varsta" name="Participant.Varsta" class="form-control" value="@Model.Participant.Varsta" required />
+    </div>
+    <div class="form-group">
+        <label for="Echipa">Echipa</label>
+        <input type="text" id="Echipa" name="Participant.Echipa" class="form-control" value="@Model.Participant.Echipa" required />
+    </div>
+    <div class="form-group">
+        <label for="IDEveniment">Eveniment</label>
+        <select id="IDEveniment" name="Participant.IDEveniment" class="form-control" required>
+            @foreach (var eveniment in Model.EvenimenteSportive)
+            {
+                @if (eveniment.ID == Model.Participant.IDEveniment)
+                {
+                    <option value="@eveniment.ID" selected>@eveniment.Nume</option>
+                }
+                else
+                {
+                    <option value="@eveniment.ID">@eveniment.Nume</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salveaza</button>
+    <a asp-page="./Index" class="btn btn-secondary">Anuleaza</a>
+</form>

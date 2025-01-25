@@ -1,0 +1,43 @@
+﻿@page
+@model EvenimenteSportive.Pages.Sponsori.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Sponsor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sponsor.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sponsor.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sponsor.Buget)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sponsor.Buget)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sponsor.DurataContract)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sponsor.DurataContract)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sponsor.IDEveniment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sponsor.IDEveniment)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Sponsor.ID">Editeaza</a>
+    <a asp-page="./Index">Inapoi la lista</a>
+</div>

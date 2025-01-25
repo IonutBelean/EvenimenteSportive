@@ -1,0 +1,31 @@
+﻿@page
+@model EvenimenteSportive.Pages.Locatii.IndexModel
+
+<h1>Lista Locatiilor</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Adresa</th>
+            <th>Capacitate</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var locatie in Model.Locatii)
+        {
+            <tr>
+                <td>@locatie.Nume</td>
+                <td>@locatie.Adresa</td>
+                <td>@locatie.Capacitate</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@locatie.ID">Editeaza</a> |
+                    <a asp-page="Delete" asp-route-id="@locatie.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="Create" class="btn btn-primary">Adauga Locatie</a>

@@ -1,0 +1,37 @@
+﻿@page
+@model EvenimenteSportive.Pages.Evenimente.IndexModel
+@{
+    ViewData["Title"] = "Lista Evenimentelor";
+}
+
+<h1>Lista Evenimentelor Sportive</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Data</th>
+            <th>Tip</th>
+            <th>Locatie</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var eveniment in Model.Evenimente)
+        {
+            <tr>
+                <td>@eveniment.Nume</td>
+                <td>@eveniment.Data.ToShortDateString()</td>
+                <td>@eveniment.Tip</td>
+                <td>@eveniment.Locatie?.Nume</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@eveniment.ID">Editeaza</a> |
+                    <a asp-page="Details" asp-route-id="@eveniment.ID">Detalii</a> |
+                    <a asp-page="Delete" asp-route-id="@eveniment.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="Create" class="btn btn-primary">Adauga Eveniment</a>

@@ -1,0 +1,37 @@
+﻿@page
+@model EvenimenteSportive.Pages.Evenimente.CreateModel
+
+<h1>Adauga Eveniment</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Nume">Nume</label>
+        <input type="text" id="Nume" name="EvenimentSportiv.Nume" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Data">Data</label>
+        <input type="date" id="Data" name="EvenimentSportiv.Data" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Tip">Tip</label>
+        <input type="text" id="Tip" name="EvenimentSportiv.Tip" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="IDLocatie">Locatie</label>
+        @if (Model.Locatii == null || !Model.Locatii.Any())
+        {
+            <p class="text-danger">Nu exista locatii disponibile. Adauga locatii inainte de a crea un eveniment.</p>
+        }
+        else
+        {
+            <select id="IDLocatie" name="EvenimentSportiv.IDLocatie" class="form-control" required>
+                @foreach (var locatie in Model.Locatii)
+                {
+                    <option value="@locatie.ID">@locatie.Nume</option>
+                }
+            </select>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Salveaza</button>
+</form>
+

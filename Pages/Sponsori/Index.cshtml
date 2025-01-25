@@ -1,0 +1,34 @@
+﻿@page
+@model EvenimenteSportive.Pages.Sponsori.IndexModel
+
+<h1>Lista Sponsorilor</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Buget</th>
+            <th>Durata Contract</th>
+            <th>Eveniment</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sponsor in Model.Sponsori)
+        {
+            <tr>
+                <td>@sponsor.Nume</td>
+                <td>@sponsor.Buget</td>
+                <td>@sponsor.DurataContract</td>
+                <td>@sponsor.EvenimentSportiv?.Nume</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@sponsor.ID">Editeaza</a> |
+                    <a asp-page="Details" asp-route-id="@sponsor.ID">Detalii</a> |
+                    <a asp-page="Delete" asp-route-id="@sponsor.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="Create" class="btn btn-primary">Adauga Sponsor</a>

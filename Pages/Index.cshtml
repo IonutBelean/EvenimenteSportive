@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Rezumat Evenimente Sportive";
+}
+
+<h1 class="text-center">Rezumat Evenimente Sportive</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Eveniment</th>
+            <th>Data</th>
+            <th>Locatie</th>
+            <th>Capacitate</th>
+            <th>Participanti</th>
+            <th>Sponsori</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Rezumat != null && Model.Rezumat.Any())
+        {
+            @foreach (var item in Model.Rezumat)
+            {
+                <tr>
+                    <td>@item.EvenimentNume</td>
+                    <td>@item.EvenimentData.ToShortDateString()</td>
+                    <td>@item.LocatieNume</td>
+                    <td>@item.LocatieCapacitate</td>
+                    <td>
+                        <ul>
+                            @foreach (var participant in item.Participanti)
+                            {
+                                <li>@participant</li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var sponsor in item.Sponsori)
+                            {
+                                <li>@sponsor</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">Nu exista date disponibile.</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+﻿@page
+@model EvenimenteSportive.Pages.Locatii.CreateModel
+
+<h1>Adaugă Locație</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Nume">Nume</label>
+        <input type="text" id="Nume" name="Locatie.Nume" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Adresa">Adresa</label>
+        <input type="text" id="Adresa" name="Locatie.Adresa" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Capacitate">Capacitate</label>
+        <input type="number" id="Capacitate" name="Locatie.Capacitate" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Salveaza</button>
+</form>
+

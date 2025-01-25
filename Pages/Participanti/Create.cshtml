@@ -1,0 +1,32 @@
+﻿@page
+@model EvenimenteSportive.Pages.Participanti.CreateModel
+@using EvenimenteSportive.Models
+
+<h1>Adauga Participant</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Nume">Nume</label>
+        <input type="text" id="Nume" name="Participant.Nume" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Varsta">Varsta</label>
+        <input type="number" id="Varsta" name="Participant.Varsta" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Echipa">Echipa</label>
+        <input type="text" id="Echipa" name="Participant.Echipa" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="IDEveniment">Eveniment</label>
+        <select id="IDEveniment" name="Participant.IDEveniment" class="form-control" required>
+            @foreach (var eveniment in Model.EvenimenteSportive)
+            {
+                <option value="@eveniment.ID">@eveniment.Nume</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salveaza</button>
+</form>
+
+

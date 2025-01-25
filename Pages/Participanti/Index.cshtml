@@ -1,0 +1,32 @@
+﻿@page
+@model EvenimenteSportive.Pages.Participanti.IndexModel
+
+<h1>Lista Participantilor</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Varsta</th>
+            <th>Echipa</th>
+            <th>Eveniment</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var participant in Model.Participanti)
+        {
+            <tr>
+                <td>@participant.Nume</td>
+                <td>@participant.Varsta</td>
+                <td>@participant.Echipa</td>
+                <td>@participant.EvenimentSportiv?.Nume</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@participant.ID">Editeaza</a> |
+                    <a asp-page="Delete" asp-route-id="@participant.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-page="Create" class="btn btn-primary">Adauga Participant</a>
